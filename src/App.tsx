@@ -23,14 +23,13 @@ const HeroCanvas = lazy(() => import('@/components/HeroCanvasV2'))
  * shader, the intro, the profile rail and the one scrolling panel. Each route
  * renders its view into that panel through the Outlet.
  *
- * Home is the route that shaped the layout: it is sized to the panel box and
- * must not scroll, which is what `data-fixed` switches off. Projects and
- * Contact opt into the fixed panel; other long views scroll naturally.
+ * Home and long content routes use the panel's native scroller when content
+ * exceeds the viewport. Projects and Contact opt into a fixed panel layout.
  */
 export default function App() {
   const { pathname } = useLocation()
   useLenis(pathname)
-  const FIXED_ROUTES = ['/', '/projects', '/contact']
+  const FIXED_ROUTES = ['/projects', '/contact']
   const isFixed = FIXED_ROUTES.includes(pathname)
   // Below the shell breakpoint the rail is gone: a bottom tab bar navigates,
   // the QuickMenu (theme + accessibility) floats top-right on every page but

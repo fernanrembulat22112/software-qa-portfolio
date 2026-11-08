@@ -92,7 +92,7 @@ export default function HomeBento() {
       </Link>
 
       {/* QA skills drawn from the existing About and Services content. */}
-      <Link to="/about" className="bento__card bento__card--ai">
+      <Link to="/services" className="bento__card bento__card--ai">
         <CardHead Icon={CheckCircle} title="Testing Focus" desc="Manual QA practices used across game, website, and mobile testing." />
         <div className="bento__media bento__qa-focus" aria-hidden="true">
           {QA_FOCUS.map((skill) => (
